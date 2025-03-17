@@ -16,3 +16,7 @@ $routes->post('/login', 'AuthController::loginUser');
 $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/dashboard', 'TaskController::index');
+
+$routes->get('/tasks/create', 'TaskController::create');
+
+$routes->post('/tasks/store', 'TaskController::store');
