@@ -53,8 +53,10 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
+</div>
 
-        <script>
+<script>
     function deleteTask(taskId) {
     if (!confirm("Are you sure you want to delete this task?")) return;
 
@@ -76,9 +78,7 @@
         }
     })
     .catch(error => console.error("Error:", error));
-
 }
-    </div>
-</div>
+</script>
 </body>
 </html>
