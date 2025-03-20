@@ -30,3 +30,6 @@ $routes->get('/tasks/completed_tasks', 'TaskController::completedtasks');
 $routes->post('/tasks/complete/(:num)', 'TaskController::complete/$1');
 
 $routes->get('/tasks/deleted_tasks', 'TaskController::deletedTasks');
+
+$routes->delete('/tasks/delete_all', 'TaskController::deleteAllTasks');
+$routes->delete('/tasks/delete_all_done', 'TaskController::deletecompleted');

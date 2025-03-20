@@ -26,7 +26,7 @@
                 <th>Deleted At</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id = "table">
             <?php foreach ($deleted_tasks as $task): ?>
                 <tr>
                     <td><?= esc($task['title']) ?></td>
@@ -34,8 +34,35 @@
                     <td><?= esc($task['deleted_at']) ?></td>
                 </tr>
             <?php endforeach; ?>
+            <button onclick="deleteAll()">Clear History</button>
         </tbody>
     </table>
 </div>
+
+<script>
+function deleteAll() {
+    if (!confirm("Are you sure you want to delete all tasks?")) return;
+    fetch('<?= base_url('tasks/delete_all') ?>', {
+        method: "DELETE",  
+        headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": "<?= csrf_hash() ?>" 
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+
+            document.getElementById("table").remove();
+            alert(data.message); 
+        } else {
+            alert("Error deleting tasks: " + data.message);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+</script>
+
 </body>
 </html>

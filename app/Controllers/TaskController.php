@@ -133,4 +133,26 @@ public function delete($id)
         return view('tasks/deleted_tasks', $data);
     }
 
+    public function deleteAllTasks()
+    {
+        $deletedTaskModel = new DeletedTaskModel();
+    
+        if ($deletedTaskModel->truncate()) {
+            return $this->response->setJSON(['success' => true, 'message' => 'All tasks deleted successfully.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to delete tasks.']);
+        }
+    }
+
+    public function deletecompleted()
+    {
+        $completedtask = new CompletedTaskModel();
+    
+        if ($completedtask->truncate()) {
+            return $this->response->setJSON(['success' => true, 'message' => 'All tasks deleted successfully.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to delete tasks.']);
+        }
+    }
+
 }
