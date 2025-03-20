@@ -25,3 +25,5 @@ $routes->get('/tasks/edit/(:num)', 'TaskController::edit/$1');
 $routes->post('/tasks/update/(:num)', 'TaskController::update/$1');
 
 $routes->delete('/tasks/delete/(:num)', 'TaskController::delete/$1');
+
+$routes->get('/tasks/completed_tasks', 'TaskController::completedtasks');

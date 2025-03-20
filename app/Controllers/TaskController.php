@@ -73,4 +73,12 @@ public function delete($id)
         }
     }
 
+
+    public function completedtasks()
+    {
+        $completedtask = new CompletedTaskModel();
+        $data['completed_tasks'] = $completedtask->findAll();
+        return view('tasks/completed_tasks', $data);
+    }
+
 }

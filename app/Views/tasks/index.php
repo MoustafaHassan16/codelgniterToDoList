@@ -17,6 +17,9 @@
             <li >
                 <a href="<?= base_url('tasks/create') ?>">Create Task</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('tasks/completed_tasks') ?>">Completed Tasks</a>
+            </li>
             </div>
             <div >
             <li >
