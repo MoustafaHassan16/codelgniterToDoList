@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\TaskModel;
 use App\Models\CompletedTaskModel;
+use App\Models\DeletedTaskModel;
 use CodeIgniter\Controller;
 
 class TaskController extends Controller
@@ -109,6 +110,14 @@ public function delete($id)
         }
     
         return $this->response->setJSON(['success' => false, 'message' => 'Invalid request']);
+    }
+
+
+    public function deletedTasks()
+    {
+        $deletedTaskModel = new DeletedTaskModel();
+        $data['deleted_tasks'] = $deletedTaskModel->findAll();
+        return view('tasks/deleted_tasks', $data);
     }
 
 }
