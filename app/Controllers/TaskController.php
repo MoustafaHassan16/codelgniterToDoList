@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\TaskModel;
+use App\Models\CompletedTaskModel;
 use CodeIgniter\Controller;
 
 class TaskController extends Controller
