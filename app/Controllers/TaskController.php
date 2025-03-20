@@ -82,4 +82,33 @@ public function delete($id)
         return view('tasks/completed_tasks', $data);
     }
 
+    public function complete($id)
+    {
+        if ($this->request->isAJAX()) { 
+            $taskModel = new TaskModel();
+            $completedtask = new CompletedTaskModel();
+    
+            $task = $taskModel->where('id', $id)->where('user_id', session()->get('user_id'))->first();
+    
+            if ($task) {
+         
+                $completedtask->save([
+                    'task_id' => $task['id'],
+                    'title' => $task['title'],
+                    'description' => $task['description'],
+                    'deleted_at' => date('Y-m-d H:i:s')
+                ]);
+    
+                
+                $taskModel->delete($id);
+    
+                return $this->response->setJSON(['success' => true, 'message' => 'Task completed successfully']);
+            } else {
+                return $this->response->setJSON(['success' => false, 'message' => 'Task not found or unauthorized']);
+            }
+        }
+    
+        return $this->response->setJSON(['success' => false, 'message' => 'Invalid request']);
+    }
+
 }

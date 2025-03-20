@@ -49,7 +49,7 @@
                     <td><?= esc($task['due_date']) ?></td>
                     <td>
                         <a href="<?= base_url('tasks/edit/' . $task['id']) ?>">Edit</a> 
-                        <button onclick="completeTask(<?= $task['id'] ?>)" >Complete</button> 
+                        <button onclick="completeTask(<?= $task['id'] ?>)">Complete</button> 
                         <button onclick="deleteTask(<?= $task['id'] ?>)" >Delete</button>
                     </td>
                 </tr>
@@ -82,6 +82,33 @@
     })
     .catch(error => console.error("Error:", error));
 }
+
+
+function completeTask(id) {
+
+confetti({
+particleCount: 100,
+spread: 70,
+origin: { y: 0.6 },
+});
+fetch(`<?= base_url('tasks/complete/')?>${id}`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest' 
+    }
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        document.getElementById(`task-${id}`).remove();
+    } else {
+        alert(data.message);
+    }
+})
+.catch(error => console.error('Error:', error));
+}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 </body>
 </html>
