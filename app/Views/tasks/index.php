@@ -51,7 +51,7 @@
                     <td><?= esc($task['description']) ?></td>
                     <td><?= esc($task['due_date']) ?></td>
                     <td>
-                        <a href="<?= base_url('tasks/edit/' . $task['id']) ?>">Edit</a> 
+                       <button onclick= "document.location='tasks/edit/'">Edit</button>
                         <button onclick="completeTask(<?= $task['id'] ?>)">Complete</button> 
                         <button onclick="deleteTask(<?= $task['id'] ?>)" >Delete</button>
                     </td>
