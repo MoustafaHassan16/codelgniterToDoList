@@ -12,6 +12,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: margin 100ms;
+    
 }
 
 .cardstyle{
@@ -110,3 +112,4 @@ body {
     top: 0;
     border-radius: 10px;
   }
+
