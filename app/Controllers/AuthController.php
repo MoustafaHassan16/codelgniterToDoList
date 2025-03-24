@@ -38,9 +38,9 @@ class AuthController extends Controller
         $user = $userModel->where('email', $email)->first();
         if ($user && password_verify($password, $user['password'])) {
             session()->set('user_id', $user['id']);
-            return redirect()->to('dashboard');
+            return $this->response->setJSON(['status' => 'success', 'redirect' => 'dashboard']);
         } else {
-            return redirect()->to('/login')->with('error', 'Invalid credentials');
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Invalid credentials']);
         }
     }
 
