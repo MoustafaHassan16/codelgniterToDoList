@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            background-attachment: fixed;
-            background-image: url('<?php echo base_url("public/img.avif"); ?>');
-            background-repeat: no-repeat;
-            background-size: cover; /* This ensures the image covers the whole screen */
-        }
-    </style>
     <title>Log-In</title>
 </head>
 <header>
@@ -22,13 +14,13 @@
 <div class="container-sm">
 <div class="control">
 <div class="cardstyle">
-<h5 class="card-title text-center" style="color:white; font-weight:bold;">Login</h5>
+<h5 class="card-title text-center">Login</h5>
 <form id="loginForm">
     <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
     <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
     <button  class="btn btn-primary" type="submit">Login</button>
 </form>
-<span class="span-text">Don't have an account? <button type="button" class="button-85"  onclick= "document.location='register'">Register</button>
+<span>Don't have an account? <button type="button" class="button-85"  onclick= "document.location='register'">Register</button>
 </div>
 </div>
 </div>
