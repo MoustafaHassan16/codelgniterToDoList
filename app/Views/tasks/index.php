@@ -61,7 +61,7 @@
      
     <div class="container-sm">
         <h2 class="title">Your Tasks</h2>
-        <table class="table table-bordered">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Title</th>
