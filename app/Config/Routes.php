@@ -33,3 +33,5 @@ $routes->get('/tasks/deleted_tasks', 'TaskController::deletedTasks');
 
 $routes->delete('/tasks/delete_all', 'TaskController::deleteAllTasks');
 $routes->delete('/tasks/delete_all_done', 'TaskController::deletecompleted');
+
+$routes->post('tasks/suggest', 'OpenAIController::HelpTask');
